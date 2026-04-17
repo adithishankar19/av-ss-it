@@ -28,7 +28,7 @@ pages:
   type: generic
 
 # --- Test Case 1 ---
-- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample1/mixture.wav"></audio>'
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="configs/resources/audio/acapella/sample1/mixture.wav"></audio>'
   id: acappella_sample_1
   mustRate: true
   name: Sample 1
@@ -45,14 +45,14 @@ pages:
       max_label: Perfectly Isolated
       values: 5
   stimuli:
-    M1: path/to/acappella/sample1/audio_only.wav
-    M2: path/to/acappella/sample1/vovit.wav
-    M3: path/to/acappella/sample1/pure_transformer.wav
-    M4: path/to/acappella/sample1/mamba_hybrid.wav
+    M1: configs/resources/audio/acapella/sample1/audio_only.wav
+    M2: configs/resources/audio/acapella/sample1/vovit.wav
+    M3: configs/resources/audio/acapella/sample1/pure_transformer.wav
+    M4: configs/resources/audio/acapella/sample1/mamba_hybrid.wav
   type: likert_multi_stimulus
 
 # --- Test Case 2 ---
-- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample2/mixture.wav"></audio>'
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="configs/resources/audio/acapella/sample2/mixture.wav"></audio>'
   id: acappella_sample_2
   mustRate: true
   name: Sample 2
@@ -69,14 +69,14 @@ pages:
       max_label: Perfectly Isolated
       values: 5
   stimuli:
-    M1: path/to/acappella/sample2/audio_only.wav
-    M2: path/to/acappella/sample2/vovit.wav
-    M3: path/to/acappella/sample2/pure_transformer.wav
-    M4: path/to/acappella/sample2/mamba_hybrid.wav
+    M1: configs/resources/audio/acapella/sample2/audio_only.wav
+    M2: configs/resources/audio/acapella/sample2/vovit.wav
+    M3: configs/resources/audio/acapella/sample2/pure_transformer.wav
+    M4: configs/resources/audio/acapella/sample2/mamba_hybrid.wav
   type: likert_multi_stimulus
 
 # --- Test Case 3 ---
-- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample3/mixture.wav"></audio>'
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="configs/resources/audio/acapella/sample3/mixture.wav"></audio>'
   id: acappella_sample_3
   mustRate: true
   name: Sample 3
@@ -93,14 +93,14 @@ pages:
       max_label: Perfectly Isolated
       values: 5
   stimuli:
-    M1: path/to/acappella/sample3/audio_only.wav
-    M2: path/to/acappella/sample3/vovit.wav
-    M3: path/to/acappella/sample3/pure_transformer.wav
-    M4: path/to/acappella/sample3/mamba_hybrid.wav
+    M1: configs/resources/audio/acapella/sample3/audio_only.wav
+    M2: configs/resources/audio/acapella/sample3/vovit.wav
+    M3: configs/resources/audio/acapella/sample3/pure_transformer.wav
+    M4: configs/resources/audio/acapella/sample3/mamba_hybrid.wav
   type: likert_multi_stimulus
 
 # --- Test Case 4 ---
-- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample4/mixture.wav"></audio>'
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="configs/resources/audio/acapella/sample4/mixture.wav"></audio>'
   id: acappella_sample_4
   mustRate: true
   name: Sample 4
@@ -117,14 +117,14 @@ pages:
       max_label: Perfectly Isolated
       values: 5
   stimuli:
-    M1: path/to/acappella/sample4/audio_only.wav
-    M2: path/to/acappella/sample4/vovit.wav
-    M3: path/to/acappella/sample4/pure_transformer.wav
-    M4: path/to/acappella/sample4/mamba_hybrid.wav
+    M1: configs/resources/audio/acapella/sample4/audio_only.wav
+    M2: configs/resources/audio/acapella/sample4/vovit.wav
+    M3: configs/resources/audio/acapella/sample4/pure_transformer.wav
+    M4: configs/resources/audio/acapella/sample4/mamba_hybrid.wav
   type: likert_multi_stimulus
 
 # --- Test Case 5 ---
-- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample5/mixture.wav"></audio>'
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="configs/resources/audio/acapella/sample5/mixture.wav"></audio>'
   id: acappella_sample_5
   mustRate: true
   name: Sample 5
@@ -141,10 +141,10 @@ pages:
       max_label: Perfectly Isolated
       values: 5
   stimuli:
-    M1: path/to/acappella/sample5/audio_only.wav
-    M2: path/to/acappella/sample5/vovit.wav
-    M3: path/to/acappella/sample5/pure_transformer.wav
-    M4: path/to/acappella/sample5/mamba_hybrid.wav
+    M1: configs/resources/audio/acapella/sample5/audio_only.wav
+    M2: configs/resources/audio/acapella/sample5/vovit.wav
+    M3: configs/resources/audio/acapella/sample5/pure_transformer.wav
+    M4: configs/resources/audio/acapella/sample5/mamba_hybrid.wav
   type: likert_multi_stimulus
 
 - content: Thank you for participating! Please fill out the questionnaire below.
