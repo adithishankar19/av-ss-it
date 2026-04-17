@@ -1,535 +1,167 @@
 bufferSize: 4096
+testId: acappella_av_sep_test
+testname: Acappella Audio-Visual Source Separation Test
+remoteService: https://formspree.io/f/movnrpqv
+showButtonPreviousPage: true
+stopOnErrors: true
+
 pages:
-- content: '<br>        This perceptual test takes around <b>15 minutes</b>. It is
+- content: |
+    <br>This perceptual test takes around <b>10-15 minutes</b>. It is 
     <b>required</b> to use a decent playback system (studio monitors or good headphones)!
-    Make sure you have the right volume to hear it properly while preventing hearing
-    loss.<br>        <br><br>        <b>In this test, we are going to be comparing
-    two different settings to separate the singing voice or violin from a Carnatic
-    Music mixture.</b> Carnatic music is a style of art and devotional music performed
-    largely in South India. It is highly improvisational, and the most common instrument
-    line-up currently, and also the one represented in this experiment, is composed
-    by a <b>lead singer</b>, an <b>accompanying violin</b>, a <b>percussion mridangam</b>,
-    and a <b>tanpura</b>. The latter maintains a drone tonic from from which the performance
-    is build on top of.<br>        <br><br>        <b>The input mixture is the only
-    reference available</b>. In case you need timbral or temporal cues for your rating,
-    the mixture serves this purpose.<br>        <br><br>        <b>You will be asked
-    to rate the quality of singing voice separation or violin separation in Carnatic
-    music</b><br><br>        There are a total of <b> 12 test cases</b> in this experiment.
-    6 test cases are for vocal separation and 6 test cases are for violin separation.<br><br>        Please,
-    <b>finish and submit the results</b>. Otherwise, they won&#39;t be sent.<br>        <br><br>        <i>(use
-    a laptop/desktop computer with Chrome or Firefox, since some audios did not load
-    with Safari or with phones)</i><br>        '
+    <br><br>
+    <b>In this test, we are comparing four models for audio-visual singing voice separation</b> 
+    using the <b>Acappella dataset</b>. This task involves extracting a target singer's voice 
+    from a mixture of multiple vocal tracks using both audio and visual (video) cues.
+    <br><br>
+    <b>The input mixture is the only reference available</b>.
+    <br><br>
+    <b>Rating Criteria:</b>
+    1. <b>Vocal Quality:</b> How natural and clean the voice sounds (ignoring background bleed). 
+       Look for metallic artifacts or robotic distortions.
+    2. <b>Vocal Isolation:</b> How well the target voice is separated from other voices. 
+       Look for "ghost" voices or background bleed.
+    <br><br>
+    There are a total of <b>5 test cases</b>.
   id: instructions
-  name: Basic Instructions
+  name: Instructions
   type: generic
-- content: Rate the violin extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_6-violin/Sanidha_Concert_5_Segment_6-violin-reference-130.00s.wav"></audio>
-  id: Concert_5_Segment_6-violin
-  mustPlayback: false
+
+# --- Test Case 1 ---
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample1/mixture.wav"></audio>'
+  id: acappella_sample_1
   mustRate: true
-  name: Concert_5_Segment_6-violin
+  name: Sample 1
   randomize: true
   response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
+    - label: Vocal Quality
+      type: likert
+      min_label: Poor
+      max_label: Excellent
+      values: 5
+    - label: Vocal Isolation
+      type: likert
+      min_label: No Separation
+      max_label: Perfectly Isolated
+      values: 5
   stimuli:
-    C1: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_6-violin/Sanidha_Concert_5_Segment_6-violin-tfc_tdf_violin-130.00s.wav
-    C2: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_6-violin/Sanidha_Concert_5_Segment_6-violin-film+mha_epoch61-130.00s.wav
-    C3: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_6-violin/Sanidha_Concert_5_Segment_6-violin-concat-130.00s.wav
-    C4: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_6-violin/Sanidha_Concert_5_Segment_6-violin-film-130.00s.wav
+    M1: path/to/acappella/sample1/audio_only.wav
+    M2: path/to/acappella/sample1/vovit.wav
+    M3: path/to/acappella/sample1/pure_transformer.wav
+    M4: path/to/acappella/sample1/mamba_hybrid.wav
   type: likert_multi_stimulus
-- content: Rate the violin extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_4-violin/Sanidha_Concert_5_Segment_4-violin-reference-230.00s.wav"></audio>
-  id: Concert_5_Segment_4-violin
-  mustPlayback: false
+
+# --- Test Case 2 ---
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample2/mixture.wav"></audio>'
+  id: acappella_sample_2
   mustRate: true
-  name: Concert_5_Segment_4-violin
+  name: Sample 2
   randomize: true
   response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
+    - label: Vocal Quality
+      type: likert
+      min_label: Poor
+      max_label: Excellent
+      values: 5
+    - label: Vocal Isolation
+      type: likert
+      min_label: No Separation
+      max_label: Perfectly Isolated
+      values: 5
   stimuli:
-    C1: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_4-violin/Sanidha_Concert_5_Segment_4-violin-film+mha_epoch61-230.00s.wav
-    C2: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_4-violin/Sanidha_Concert_5_Segment_4-violin-concat-230.00s.wav
-    C3: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_4-violin/Sanidha_Concert_5_Segment_4-violin-film-230.00s.wav
-    C4: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_4-violin/Sanidha_Concert_5_Segment_4-violin-tfc_tdf_violin-230.00s.wav
+    M1: path/to/acappella/sample2/audio_only.wav
+    M2: path/to/acappella/sample2/vovit.wav
+    M3: path/to/acappella/sample2/pure_transformer.wav
+    M4: path/to/acappella/sample2/mamba_hybrid.wav
   type: likert_multi_stimulus
-- content: Rate the violin extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_2-violin/Sanidha_Concert_5_Segment_2-violin-reference-420.00s.wav"></audio>
-  id: Concert_5_Segment_2-violin
-  mustPlayback: false
+
+# --- Test Case 3 ---
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample3/mixture.wav"></audio>'
+  id: acappella_sample_3
   mustRate: true
-  name: Concert_5_Segment_2-violin
+  name: Sample 3
   randomize: true
   response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
+    - label: Vocal Quality
+      type: likert
+      min_label: Poor
+      max_label: Excellent
+      values: 5
+    - label: Vocal Isolation
+      type: likert
+      min_label: No Separation
+      max_label: Perfectly Isolated
+      values: 5
   stimuli:
-    C1: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_2-violin/Sanidha_Concert_5_Segment_2-violin-tfc_tdf_violin-420.00s.wav
-    C2: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_2-violin/Sanidha_Concert_5_Segment_2-violin-film-420.00s.wav
-    C3: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_2-violin/Sanidha_Concert_5_Segment_2-violin-film+mha_epoch61-420.00s.wav
-    C4: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_2-violin/Sanidha_Concert_5_Segment_2-violin-concat-420.00s.wav
+    M1: path/to/acappella/sample3/audio_only.wav
+    M2: path/to/acappella/sample3/vovit.wav
+    M3: path/to/acappella/sample3/pure_transformer.wav
+    M4: path/to/acappella/sample3/mamba_hybrid.wav
   type: likert_multi_stimulus
-- content: Rate the violin extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_7-violin/Sanidha_Concert_5_Segment_7-violin-reference-110.00s.wav"></audio>
-  id: Concert_5_Segment_7-violin
-  mustPlayback: false
+
+# --- Test Case 4 ---
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample4/mixture.wav"></audio>'
+  id: acappella_sample_4
   mustRate: true
-  name: Concert_5_Segment_7-violin
+  name: Sample 4
   randomize: true
   response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
+    - label: Vocal Quality
+      type: likert
+      min_label: Poor
+      max_label: Excellent
+      values: 5
+    - label: Vocal Isolation
+      type: likert
+      min_label: No Separation
+      max_label: Perfectly Isolated
+      values: 5
   stimuli:
-    C1: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_7-violin/Sanidha_Concert_5_Segment_7-violin-film+mha_epoch61-110.00s.wav
-    C2: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_7-violin/Sanidha_Concert_5_Segment_7-violin-film-110.00s.wav
-    C3: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_7-violin/Sanidha_Concert_5_Segment_7-violin-concat-110.00s.wav
-    C4: configs/resources/audio/carnatic/violin/Sanidha_Concert_5_Segment_7-violin/Sanidha_Concert_5_Segment_7-violin-tfc_tdf_violin-110.00s.wav
+    M1: path/to/acappella/sample4/audio_only.wav
+    M2: path/to/acappella/sample4/vovit.wav
+    M3: path/to/acappella/sample4/pure_transformer.wav
+    M4: path/to/acappella/sample4/mamba_hybrid.wav
   type: likert_multi_stimulus
-- content: Rate the violin extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_5-violin/Sanidha_Concert_1_Segment_5-violin-reference-235.00s.wav"></audio>
-  id: Concert_1_Segment_5-violin
-  mustPlayback: false
+
+# --- Test Case 5 ---
+- content: 'Rate the <b>Vocal Quality</b> and <b>Vocal Isolation</b> for the separated voice:<br><audio controls src="path/to/acappella/sample5/mixture.wav"></audio>'
+  id: acappella_sample_5
   mustRate: true
-  name: Concert_1_Segment_5-violin
+  name: Sample 5
   randomize: true
   response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
+    - label: Vocal Quality
+      type: likert
+      min_label: Poor
+      max_label: Excellent
+      values: 5
+    - label: Vocal Isolation
+      type: likert
+      min_label: No Separation
+      max_label: Perfectly Isolated
+      values: 5
   stimuli:
-    C1: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_5-violin/Sanidha_Concert_1_Segment_5-violin-film-235.00s.wav
-    C2: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_5-violin/Sanidha_Concert_1_Segment_5-violin-concat-235.00s.wav
-    C3: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_5-violin/Sanidha_Concert_1_Segment_5-violin-tfc_tdf_violin-235.00s.wav
-    C4: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_5-violin/Sanidha_Concert_1_Segment_5-violin-film+mha_epoch61-235.00s.wav
+    M1: path/to/acappella/sample5/audio_only.wav
+    M2: path/to/acappella/sample5/vovit.wav
+    M3: path/to/acappella/sample5/pure_transformer.wav
+    M4: path/to/acappella/sample5/mamba_hybrid.wav
   type: likert_multi_stimulus
-- content: Rate the violin extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_1-violin/Sanidha_Concert_1_Segment_1-violin-reference-265.00s.wav"></audio>
-  id: Concert_1_Segment_1-violin
-  mustPlayback: false
-  mustRate: true
-  name: Concert_1_Segment_1-violin
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_1-violin/Sanidha_Concert_1_Segment_1-violin-concat-265.00s.wav
-    C2: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_1-violin/Sanidha_Concert_1_Segment_1-violin-film-265.00s.wav
-    C3: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_1-violin/Sanidha_Concert_1_Segment_1-violin-film+mha_epoch61-265.00s.wav
-    C4: configs/resources/audio/carnatic/violin/Sanidha_Concert_1_Segment_1-violin/Sanidha_Concert_1_Segment_1-violin-tfc_tdf_violin-265.00s.wav
-  type: likert_multi_stimulus
-- content: Rate the singing voice extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep-reference-180.00s.wav"></audio>
-  id: Concert_1_Segment_3-vocal_sep
-  mustPlayback: false
-  mustRate: true
-  name: Concert_1_Segment_3-vocal_sep
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep-tfc_tdf_vocal-180.00s.wav
-    C2: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep-vovit-film+mha-180.00s.wav
-    C3: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep-vovit-film-180.00s.wav
-    C4: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep/Sanidha_Concert_1_Segment_3-vocal_sep-vovit-concat-180.00s.wav
-  type: likert_multi_stimulus
-- content: Rate the singing voice extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep-reference-1380.00s.wav"></audio>
-  id: Concert_5_Segment_3-vocal_sep
-  mustPlayback: false
-  mustRate: true
-  name: Concert_5_Segment_3-vocal_sep
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep-vovit-film+mha-1380.00s.wav
-    C2: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep-tfc_tdf_vocal-1380.00s.wav
-    C3: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep-vovit-film-1380.00s.wav
-    C4: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep/Sanidha_Concert_5_Segment_3-vocal_sep-vovit-concat-1380.00s.wav
-  type: likert_multi_stimulus
-- content: Rate the singing voice extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep-reference-215.00s.wav"></audio>
-  id: Concert_5_Segment_4-vocal_sep
-  mustPlayback: false
-  mustRate: true
-  name: Concert_5_Segment_4-vocal_sep
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep-tfc_tdf_vocal-215.00s.wav
-    C2: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep-vovit-film-215.00s.wav
-    C3: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep-vovit-concat-215.00s.wav
-    C4: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep/Sanidha_Concert_5_Segment_4-vocal_sep-vovit-film+mha-215.00s.wav
-  type: likert_multi_stimulus
-- content: Rate the singing voice extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep-reference-330.00s.wav"></audio>
-  id: Concert_1_Segment_4-vocal_sep
-  mustPlayback: false
-  mustRate: true
-  name: Concert_1_Segment_4-vocal_sep
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep-vovit-film-330.00s.wav
-    C2: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep-vovit-film+mha-330.00s.wav
-    C3: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep-vovit-concat-330.00s.wav
-    C4: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep/Sanidha_Concert_1_Segment_4-vocal_sep-tfc_tdf_vocal-330.00s.wav
-  type: likert_multi_stimulus
-- content: Rate the singing voice extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep-reference-87.00s.wav"></audio>
-  id: Concert_5_Segment_7-vocal_sep
-  mustPlayback: false
-  mustRate: true
-  name: Concert_5_Segment_7-vocal_sep
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep-vovit-concat-87.00s.wav
-    C2: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep-vovit-film+mha-87.00s.wav
-    C3: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep-vovit-film-87.00s.wav
-    C4: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep/Sanidha_Concert_5_Segment_7-vocal_sep-tfc_tdf_vocal-87.00s.wav
-  type: likert_multi_stimulus
-- content: Rate the singing voice extracted from this musical mixture:<br><audio controls
-    src="configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep-reference-295.00s.wav"></audio>
-  id: Concert_1_Segment_6-vocal_sep
-  mustPlayback: false
-  mustRate: true
-  name: Concert_1_Segment_6-vocal_sep
-  randomize: true
-  response:
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: No Separation
-    value: 1
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Slightly Separated
-    value: 2
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Moderately Separated
-    value: 3
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Well Separated
-    value: 4
-  - img: configs/resources/images/star_off.png
-    imgHigherResponseSelected: configs/resources/images/star_on.png
-    imgSelected: configs/resources/images/star_on.png
-    label: Perfectly Separated
-    value: 5
-  stimuli:
-    C1: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep-vovit-concat-295.00s.wav
-    C2: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep-vovit-film-295.00s.wav
-    C3: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep-tfc_tdf_vocal-295.00s.wav
-    C4: configs/resources/audio/carnatic/vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep/Sanidha_Concert_1_Segment_6-vocal_sep-vovit-film+mha-295.00s.wav
-  type: likert_multi_stimulus
+
 - content: Thank you for participating! Please fill out the questionnaire below.
   id: finish
   name: Finish
-  popupContent: ''
   questionnaire:
   - label: Name
     name: user
     optional: false
     type: text
-  - label: eMail
-    name: email
-    optional: false
-    type: text
-  - default: 0
-    label: Age (optional)
-    max: 100
-    min: 0
-    name: age
-    optional: true
+  - label: Experience with audio separation (1-5)
+    name: experience
     type: number
-  - label: Music Education
-    name: education
-    response:
-    - label: None
-      value: none
-    - label: Informal
-      value: informal
-    - label: Formal
-      value: formal
-    type: likert
   - label: Feedback
     name: feedback
     optional: true
     type: long_text
-  showErrors: false
   showResults: true
   type: finish
   writeResults: true
-remoteService: https://formspree.io/f/movnrpqv
-showButtonPreviousPage: true
-stopOnErrors: true
-testId: carnatic_sep_test
-testname: Carnatic Source Separation Listening Test
