@@ -7,34 +7,52 @@ stopOnErrors: true
 
 pages:
 - content: |
-    <br>This perceptual test takes around <b>10-15 minutes</b>. It is 
-    <b>required</b> to use a decent playback system (studio monitors or good headphones)!
+    <br><b>Acappella Audio-Visual Source Separation Test</b>
     <br><br>
-    <b>In this test, we are comparing four models for audio-visual singing voice separation</b> 
-    using the <b>Acappella dataset</b>. 
+    This test is divided into two phases:
+    1. <b>Phase 1: Vocal Quality:</b> Rate the naturalness of the voice (Distortion). 
+    2. <b>Phase 2: Vocal Isolation:</b> Rate the separation from background voices (Intrusion).
     <br><br>
-    <b>The test is divided into two phases:</b>
-    1. <b>Phase 1: Vocal Quality:</b> Rate how natural and clean the voice sounds (ignoring background bleed). 
-    2. <b>Phase 2: Vocal Isolation:</b> Rate how well the target voice is separated from other voices. 
-    <br><br>
-    The input mixture is provided as a reference for each sample. There are 5 samples per phase.
+    The input mixture is provided as a reference. There are 5 samples per phase.
   id: instructions
   name: Instructions
   type: generic
 
-# --- PHASE 1: VOCAL QUALITY (SAMPLES 1-5) ---
+# ==========================================
+# PHASE 1: VOCAL QUALITY (SAMPLES 1-5)
+# ==========================================
 
-- content: '<b>Phase 1: Vocal Quality</b>. Rate how natural the voice sounds for Sample 1:<br><audio controls src="configs/resources/audio/acapella/sample1/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the singing voice signal, rate the <b>Vocal Quality</b> for Sample 1:<br><audio controls src="configs/resources/audio/acapella/sample1/mixture.wav"></audio>'
   id: quality_sample_1
   mustRate: true
   name: Quality - Sample 1
   randomize: true
-  response:
-    - label: Vocal Quality
-      type: likert
-      min_label: Poor
-      max_label: Excellent
-      values: 5
+  response: &quality_response
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: very distorted
+      value: 1
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: fairly distorted
+      value: 2
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: somewhat distorted
+      value: 3
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: slightly distorted
+      value: 4
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: not distorted
+      value: 5
   stimuli:
     M1: configs/resources/audio/acapella/sample1/audio_only.wav
     M2: configs/resources/audio/acapella/sample1/vovit.wav
@@ -42,17 +60,12 @@ pages:
     M4: configs/resources/audio/acapella/sample1/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 1: Vocal Quality</b>. Rate how natural the voice sounds for Sample 2:<br><audio controls src="configs/resources/audio/acapella/sample2/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the singing voice signal, rate the <b>Vocal Quality</b> for Sample 2:<br><audio controls src="configs/resources/audio/acapella/sample2/mixture.wav"></audio>'
   id: quality_sample_2
   mustRate: true
   name: Quality - Sample 2
   randomize: true
-  response:
-    - label: Vocal Quality
-      type: likert
-      min_label: Poor
-      max_label: Excellent
-      values: 5
+  response: *quality_response
   stimuli:
     M1: configs/resources/audio/acapella/sample2/audio_only.wav
     M2: configs/resources/audio/acapella/sample2/vovit.wav
@@ -60,17 +73,12 @@ pages:
     M4: configs/resources/audio/acapella/sample2/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 1: Vocal Quality</b>. Rate how natural the voice sounds for Sample 3:<br><audio controls src="configs/resources/audio/acapella/sample3/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the singing voice signal, rate the <b>Vocal Quality</b> for Sample 3:<br><audio controls src="configs/resources/audio/acapella/sample3/mixture.wav"></audio>'
   id: quality_sample_3
   mustRate: true
   name: Quality - Sample 3
   randomize: true
-  response:
-    - label: Vocal Quality
-      type: likert
-      min_label: Poor
-      max_label: Excellent
-      values: 5
+  response: *quality_response
   stimuli:
     M1: configs/resources/audio/acapella/sample3/audio_only.wav
     M2: configs/resources/audio/acapella/sample3/vovit.wav
@@ -78,17 +86,12 @@ pages:
     M4: configs/resources/audio/acapella/sample3/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 1: Vocal Quality</b>. Rate how natural the voice sounds for Sample 4:<br><audio controls src="configs/resources/audio/acapella/sample4/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the singing voice signal, rate the <b>Vocal Quality</b> for Sample 4:<br><audio controls src="configs/resources/audio/acapella/sample4/mixture.wav"></audio>'
   id: quality_sample_4
   mustRate: true
   name: Quality - Sample 4
   randomize: true
-  response:
-    - label: Vocal Quality
-      type: likert
-      min_label: Poor
-      max_label: Excellent
-      values: 5
+  response: *quality_response
   stimuli:
     M1: configs/resources/audio/acapella/sample4/audio_only.wav
     M2: configs/resources/audio/acapella/sample4/vovit.wav
@@ -96,17 +99,12 @@ pages:
     M4: configs/resources/audio/acapella/sample4/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 1: Vocal Quality</b>. Rate how natural the voice sounds for Sample 5:<br><audio controls src="configs/resources/audio/acapella/sample5/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the singing voice signal, rate the <b>Vocal Quality</b> for Sample 5:<br><audio controls src="configs/resources/audio/acapella/sample5/mixture.wav"></audio>'
   id: quality_sample_5
   mustRate: true
   name: Quality - Sample 5
   randomize: true
-  response:
-    - label: Vocal Quality
-      type: likert
-      min_label: Poor
-      max_label: Excellent
-      values: 5
+  response: *quality_response
   stimuli:
     M1: configs/resources/audio/acapella/sample5/audio_only.wav
     M2: configs/resources/audio/acapella/sample5/vovit.wav
@@ -114,28 +112,54 @@ pages:
     M4: configs/resources/audio/acapella/sample5/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-# --- PHASE 2: VOCAL ISOLATION (SAMPLES 1-5) ---
+# ==========================================
+# TRANSITION
+# ==========================================
 
 - content: |
-    <br><b>Vocal Quality Phase Complete.</b>
+    <br><b>Vocal Quality assessment complete.</b>
     <br><br>
-    Now starting <b>Phase 2: Vocal Isolation</b>. 
-    For the same 5 samples, please rate how well the target voice is separated from other voices (background bleed).
+    Now we begin <b>Phase 2: Vocal Isolation</b>. 
+    For the same 5 samples, please rate how intrusive the background voices or interference are.
   id: isolation_transition
   name: Transition
   type: generic
 
-- content: '<b>Phase 2: Vocal Isolation</b>. Rate the isolation for Sample 1:<br><audio controls src="configs/resources/audio/acapella/sample1/mixture.wav"></audio>'
+# ==========================================
+# PHASE 2: VOCAL ISOLATION (SAMPLES 1-5)
+# ==========================================
+
+- content: 'Attending <b>ONLY</b> to the accompaniment, rate the <b>Vocal Isolation</b> for Sample 1:<br><audio controls src="configs/resources/audio/acapella/sample1/mixture.wav"></audio>'
   id: isolation_sample_1
   mustRate: true
   name: Isolation - Sample 1
   randomize: true
-  response:
-    - label: Vocal Isolation
-      type: likert
-      min_label: No Separation
-      max_label: Perfectly Isolated
-      values: 5
+  response: &isolation_response
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: very intrusive
+      value: 1
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: somewhat intrusive
+      value: 2
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: noticeable but not intrusive
+      value: 3
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: slightly noticeable
+      value: 4
+    - img: configs/resources/images/star_off.png
+      imgHigherResponseSelected: configs/resources/images/star_on.png
+      imgSelected: configs/resources/images/star_on.png
+      label: not noticeable
+      value: 5
   stimuli:
     M1: configs/resources/audio/acapella/sample1/audio_only.wav
     M2: configs/resources/audio/acapella/sample1/vovit.wav
@@ -143,17 +167,12 @@ pages:
     M4: configs/resources/audio/acapella/sample1/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 2: Vocal Isolation</b>. Rate the isolation for Sample 2:<br><audio controls src="configs/resources/audio/acapella/sample2/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the accompaniment, rate the <b>Vocal Isolation</b> for Sample 2:<br><audio controls src="configs/resources/audio/acapella/sample2/mixture.wav"></audio>'
   id: isolation_sample_2
   mustRate: true
   name: Isolation - Sample 2
   randomize: true
-  response:
-    - label: Vocal Isolation
-      type: likert
-      min_label: No Separation
-      max_label: Perfectly Isolated
-      values: 5
+  response: *isolation_response
   stimuli:
     M1: configs/resources/audio/acapella/sample2/audio_only.wav
     M2: configs/resources/audio/acapella/sample2/vovit.wav
@@ -161,17 +180,12 @@ pages:
     M4: configs/resources/audio/acapella/sample2/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 2: Vocal Isolation</b>. Rate the isolation for Sample 3:<br><audio controls src="configs/resources/audio/acapella/sample3/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the accompaniment, rate the <b>Vocal Isolation</b> for Sample 3:<br><audio controls src="configs/resources/audio/acapella/sample3/mixture.wav"></audio>'
   id: isolation_sample_3
   mustRate: true
   name: Isolation - Sample 3
   randomize: true
-  response:
-    - label: Vocal Isolation
-      type: likert
-      min_label: No Separation
-      max_label: Perfectly Isolated
-      values: 5
+  response: *isolation_response
   stimuli:
     M1: configs/resources/audio/acapella/sample3/audio_only.wav
     M2: configs/resources/audio/acapella/sample3/vovit.wav
@@ -179,17 +193,12 @@ pages:
     M4: configs/resources/audio/acapella/sample3/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 2: Vocal Isolation</b>. Rate the isolation for Sample 4:<br><audio controls src="configs/resources/audio/acapella/sample4/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the accompaniment, rate the <b>Vocal Isolation</b> for Sample 4:<br><audio controls src="configs/resources/audio/acapella/sample4/mixture.wav"></audio>'
   id: isolation_sample_4
   mustRate: true
   name: Isolation - Sample 4
   randomize: true
-  response:
-    - label: Vocal Isolation
-      type: likert
-      min_label: No Separation
-      max_label: Perfectly Isolated
-      values: 5
+  response: *isolation_response
   stimuli:
     M1: configs/resources/audio/acapella/sample4/audio_only.wav
     M2: configs/resources/audio/acapella/sample4/vovit.wav
@@ -197,23 +206,22 @@ pages:
     M4: configs/resources/audio/acapella/sample4/mamba_hybrid.wav
   type: likert_multi_stimulus
 
-- content: '<b>Phase 2: Vocal Isolation</b>. Rate the isolation for Sample 5:<br><audio controls src="configs/resources/audio/acapella/sample5/mixture.wav"></audio>'
+- content: 'Attending <b>ONLY</b> to the accompaniment, rate the <b>Vocal Isolation</b> for Sample 5:<br><audio controls src="configs/resources/audio/acapella/sample5/mixture.wav"></audio>'
   id: isolation_sample_5
   mustRate: true
   name: Isolation - Sample 5
   randomize: true
-  response:
-    - label: Vocal Isolation
-      type: likert
-      min_label: No Separation
-      max_label: Perfectly Isolated
-      values: 5
+  response: *isolation_response
   stimuli:
     M1: configs/resources/audio/acapella/sample5/audio_only.wav
     M2: configs/resources/audio/acapella/sample5/vovit.wav
     M3: configs/resources/audio/acapella/sample5/pure_transformer.wav
     M4: configs/resources/audio/acapella/sample5/mamba_hybrid.wav
   type: likert_multi_stimulus
+
+# ==========================================
+# FINISH
+# ==========================================
 
 - content: Thank you for participating! Please fill out the questionnaire below.
   id: finish
