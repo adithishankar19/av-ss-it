@@ -56,7 +56,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample1/audio_only.wav
     M2: configs/resources/audio/acapella/sample1/vovit.wav
-    M3: configs/resources/audio/acapella/sample1/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample1/demucs.wav
     M4: configs/resources/audio/acapella/sample1/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -69,7 +69,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample2/audio_only.wav
     M2: configs/resources/audio/acapella/sample2/vovit.wav
-    M3: configs/resources/audio/acapella/sample2/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample2/demucs.wav
     M4: configs/resources/audio/acapella/sample2/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -82,7 +82,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample3/audio_only.wav
     M2: configs/resources/audio/acapella/sample3/vovit.wav
-    M3: configs/resources/audio/acapella/sample3/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample3/demucs.wav
     M4: configs/resources/audio/acapella/sample3/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -95,7 +95,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample4/audio_only.wav
     M2: configs/resources/audio/acapella/sample4/vovit.wav
-    M3: configs/resources/audio/acapella/sample4/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample4/demucs.wav
     M4: configs/resources/audio/acapella/sample4/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -108,7 +108,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample5/audio_only.wav
     M2: configs/resources/audio/acapella/sample5/vovit.wav
-    M3: configs/resources/audio/acapella/sample5/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample5/demucs.wav
     M4: configs/resources/audio/acapella/sample5/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -163,7 +163,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample1/audio_only.wav
     M2: configs/resources/audio/acapella/sample1/vovit.wav
-    M3: configs/resources/audio/acapella/sample1/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample1/demucs.wav
     M4: configs/resources/audio/acapella/sample1/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -176,7 +176,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample2/audio_only.wav
     M2: configs/resources/audio/acapella/sample2/vovit.wav
-    M3: configs/resources/audio/acapella/sample2/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample2/demucs.wav
     M4: configs/resources/audio/acapella/sample2/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -189,7 +189,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample3/audio_only.wav
     M2: configs/resources/audio/acapella/sample3/vovit.wav
-    M3: configs/resources/audio/acapella/sample3/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample3/demucs.wav
     M4: configs/resources/audio/acapella/sample3/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -202,7 +202,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample4/audio_only.wav
     M2: configs/resources/audio/acapella/sample4/vovit.wav
-    M3: configs/resources/audio/acapella/sample4/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample4/demucs.wav
     M4: configs/resources/audio/acapella/sample4/mamba_hybrid.wav
   type: likert_multi_stimulus
 
@@ -215,7 +215,7 @@ pages:
   stimuli:
     M1: configs/resources/audio/acapella/sample5/audio_only.wav
     M2: configs/resources/audio/acapella/sample5/vovit.wav
-    M3: configs/resources/audio/acapella/sample5/pure_transformer.wav
+    M3: configs/resources/audio/acapella/sample5/demucs.wav
     M4: configs/resources/audio/acapella/sample5/mamba_hybrid.wav
   type: likert_multi_stimulus
 
